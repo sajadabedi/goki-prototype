@@ -19,7 +19,7 @@ struct Chips: View {
                 .font(.subheadline)
                 .bold()
         }
-        .background(Color("Gray4"))
+        .background(.ultraThinMaterial)
         .cornerRadius(.infinity)
     }
 }

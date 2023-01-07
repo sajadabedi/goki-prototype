@@ -15,6 +15,7 @@
 		64C257A62969632100B663B1 /* SmartKeyButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C257A52969632100B663B1 /* SmartKeyButtonView.swift */; };
 		64C257AD29697C7F00B663B1 /* ParticlesEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C257AC29697C7F00B663B1 /* ParticlesEmitter.swift */; };
 		64C257B02969AFD800B663B1 /* CornerRadiusExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C257AF2969AFD800B663B1 /* CornerRadiusExtensions.swift */; };
+		64C257B32969B51900B663B1 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 64C257B22969B51900B663B1 /* Shimmer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C257B32969B51900B663B1 /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +114,7 @@
 			);
 			name = GuestsAppPrototype;
 			packageProductDependencies = (
+				64C257B22969B51900B663B1 /* Shimmer */,
 			);
 			productName = GuestsAppPrototype;
 			productReference = 64C2579129689A1C00B663B1 /* GuestsAppPrototype.app */;
@@ -142,6 +145,7 @@
 			);
 			mainGroup = 64C2578829689A1C00B663B1;
 			packageReferences = (
+				64C257B12969B51900B663B1 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = 64C2579229689A1C00B663B1 /* Products */;
 			projectDirPath = "";
@@ -375,6 +379,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		64C257B12969B51900B663B1 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		64C257B22969B51900B663B1 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C257B12969B51900B663B1 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 64C2578929689A1C00B663B1 /* Project object */;
 }

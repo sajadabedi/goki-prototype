@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shimmer
 
 struct ContentView: View {
     let facilities = ["Wifi","Washer","TV","Bathtub","Bike", "PlayStation"]
@@ -15,7 +16,7 @@ struct ContentView: View {
             ScrollView{
                 VStack(alignment: .trailing) {
                     NavigationBar
-                    VStack(spacing: 20){
+                    VStack(spacing: 18){
                         ReservationCard
                         Divider()
                         SamrtKeys.padding(.bottom)
@@ -58,8 +59,9 @@ extension ContentView {
         VStack{
             Image("hotelCover")
                 .resizable()
-                .frame(width: .infinity, height: 200)
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: .infinity, height: 170)
+                
                 .SmoothCorner(radius: 8)
                 .shadow(color: .gray.opacity(0.2), radius: 5, y:5)
                 .padding(.bottom)
@@ -84,7 +86,7 @@ extension ContentView {
                             Chips(label: item)
                         }
                     }
-                }.padding(.vertical)
+                }.padding(.vertical, 6)
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
     }
@@ -95,6 +97,7 @@ extension ContentView {
             Text("Open Door")
                 .font(.title3)
                 .bold()
+                .shimmering()
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
                     SmartKeyButtonView(iconName: "bed.double.fill", label: "Room")
@@ -108,7 +111,7 @@ extension ContentView {
                 
             } label: {
                 Image(systemName: "entry.lever.keypad")
-                Text("Backup Door Code")
+                Text("Door Code")
                     .font(.subheadline)
                     .bold()
                     
@@ -116,7 +119,7 @@ extension ContentView {
             }
             .foregroundColor(.primary)
             .padding(12)
-            .background(Color("Gray4"))
+            .background(.regularMaterial)
             .SmoothCorner(radius: 8)
             .frame(maxWidth: .infinity)
             
