@@ -63,9 +63,10 @@ struct SmartKeyButtonView: View {
                 }
             })
             .frame(minWidth: minWidthContainer, alignment: .leading)
+            .frame(height: 80)
             .padding(12)
             .background(Color("Gray4"))
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+            .SmoothCorner(radius: 8)
             
         }
         

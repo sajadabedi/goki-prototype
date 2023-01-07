@@ -60,7 +60,8 @@ extension ContentView {
                 .resizable()
                 .frame(width: .infinity, height: 200)
                 .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .SmoothCorner(radius: 8)
+                .shadow(color: .gray.opacity(0.2), radius: 5, y:5)
                 .padding(.bottom)
             VStack (alignment: .leading, spacing: 8){
                 HStack(spacing: 8){
@@ -101,14 +102,26 @@ extension ContentView {
                     SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
                     SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
                 }
-            }
+            }.padding(.bottom)
+            
             Button {
                 
             } label: {
+                Image(systemName: "entry.lever.keypad")
                 Text("Backup Door Code")
+                    .font(.subheadline)
+                    .bold()
+                    
+                    
             }
+            .foregroundColor(.primary)
+            .padding(12)
+            .background(Color("Gray4"))
+            .SmoothCorner(radius: 8)
             .frame(maxWidth: .infinity)
-            .border(.black)
+            
+            
+            
 
             
         }.frame(maxWidth: .infinity, alignment: .leading)
