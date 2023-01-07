@@ -4,6 +4,7 @@
 //
 //  Created by Sajad Abedi on 07.01.2023.
 //
+
 import SwiftUI
 import UIKit
 
@@ -68,7 +69,7 @@ public final class InternalParticlesView: UIView {
     }
 }
 
-@_functionBuilder
+@resultBuilder
 struct EmitterCellBuilder {
     static func buildBlock(_ cells: CAEmitterCell...) -> [CAEmitterCell] {
         Array(cells)
