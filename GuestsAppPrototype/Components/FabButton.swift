@@ -16,7 +16,7 @@ struct FabButton: View {
                 .frame(width: 60, height: 60)
                 .shadow(color: .black.opacity(0.2), radius: 8,y: 8)
                 .overlay {
-                    Image(systemName: "hands.sparkles")
+                    Image(systemName: "message.fill")
                         .font(.title3)
                         .bold()
                         .foregroundColor(.white)

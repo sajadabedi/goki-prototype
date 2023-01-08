@@ -9,17 +9,19 @@ import SwiftUI
 import Shimmer
 
 struct ContentView: View {
+    
     let facilities = ["Wifi","Washer","TV","Bathtub","Bike", "PlayStation"]
     let smartKeysArray = [["Room","bed.double.fill"],["Main door", "bed.double.fill"]]
     @State var firstOpen: Bool = false
+    
     var body: some View {
         NavigationStack{
             ZStack(alignment:.bottomTrailing){
                 ScrollView (showsIndicators: false){
                     ZStack{
                         VStack(alignment: .trailing) {
-                            NavigationBar
                             VStack(spacing: 18){
+                                NavigationBar
                                 ReservationCard
                                 Divider()
                                 SamrtKeys
@@ -54,10 +56,12 @@ extension ContentView {
             }
             Spacer()
             HStack(spacing:16.0){
+                
                 Image("avatar")
                     .resizable()
                     .frame(width: 30, height: 30)
                     .cornerRadius(.infinity)
+                    
             }
         }
     }
@@ -103,7 +107,7 @@ extension ContentView {
         VStack(alignment:.leading){
             HStack{
                 VStack(alignment:.leading){
-                    Text("Open Door")
+                    Text("Open door")
                         .font(.title3)
                         .bold()
                         .shimmering(active: firstOpen ? false : true,duration: 2.5)
@@ -119,7 +123,7 @@ extension ContentView {
                 } label: {
                     HStack{
                         Image(systemName: "entry.lever.keypad")
-                        Text("Door Code")
+                        Text("Door code")
                             .font(.subheadline)
                             .bold()
                     }
@@ -129,7 +133,7 @@ extension ContentView {
                 
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-                    SmartKeyButtonView(iconName: "bed.double.fill", label: "Room").onTapGesture {
+                    SmartKeyButtonView(iconName: "bed.double.fill", label: "Room 2341").onTapGesture {
                         firstOpen = true
                         print(firstOpen)
                     }
@@ -137,7 +141,7 @@ extension ContentView {
                     SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
                     SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
                 }
-            }.padding(.bottom)
+            }.padding(.bottom, 8)
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
     
