@@ -13,6 +13,9 @@ struct ContentView: View {
     let facilities = ["Wifi","Washer","TV","Bathtub","Bike", "PlayStation"]
     let smartKeysArray = [["Room","bed.double.fill"],["Main door", "bed.double.fill"]]
     @State var firstOpen: Bool = false
+    @State var showprofile: Bool = false
+    @State var showDoorCode: Bool = false
+    @State var showBooking: Bool = false
     
     var body: some View {
         NavigationStack{
@@ -45,22 +48,79 @@ extension ContentView {
     private var NavigationBar: some View {
         HStack{
             HStack{
-                Text("Reservation")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                Image(systemName: "chevron.down")
-                    .font(.subheadline)
-                    .bold()
-                    .padding(.top, 4)
-                    .foregroundColor(.secondary)
+           
+                Menu {
+                    Button {
+                        //
+                    } label: {
+                        Label {
+                            Text("Extend Booking")
+                        } icon: {
+                            Image(systemName: "calendar.badge.plus")
+                        }
+                    }
+                    Button {
+                        //
+                    } label: {
+                        Label {
+                            Text("Other Booking")
+                            
+                        } icon: {
+                            Image(systemName: "4.alt.circle")
+                        }
+                    }
+                    Button {
+                        //
+                    } label: {
+                        Label {
+                            Text("Find Another Booking")
+                        } icon: {
+                            Image(systemName: "magnifyingglass.circle")
+                        }
+                    }
+                    
+                    
+                } label: {
+                    
+                    HStack(alignment:.center){
+                        Text("Booking")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                        Image(systemName: "chevron.down")
+                            .font(.subheadline)
+                            .bold()
+                            .frame(height: 10, alignment: .bottom)
+                            .rotationEffect(Angle(degrees: showBooking ? 180 : 0))
+                            .padding(.top,8)
+                            .foregroundColor(.secondary)
+                    }
+                }.onTapGesture {
+                    withAnimation(.spring()) {
+                        showBooking.toggle()
+                    }
+                }
+
+
             }
             Spacer()
             HStack(spacing:16.0){
                 
-                Image("avatar")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .cornerRadius(.infinity)
+                Button {
+                    showprofile.toggle()
+                } label: {
+                    Image("avatar")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .cornerRadius(.infinity)
+                }.sheet(isPresented: $showprofile) {
+                    Text("User Profile")
+                    
+                        .presentationDragIndicator(.hidden)
+                        .presentationDetents([.medium, .large, .fraction(0.75)])
+                }
+
+                  
                     
             }
         }
@@ -119,7 +179,7 @@ extension ContentView {
                 
                 Spacer()
                 Button {
-                    
+                    showDoorCode.toggle()
                 } label: {
                     HStack{
                         Image(systemName: "entry.lever.keypad")
@@ -129,6 +189,10 @@ extension ContentView {
                     }
                 }
                 .buttonStyle(.borderless)
+                .sheet(isPresented: $showDoorCode) {
+                    Text("Door Code here")
+                        .presentationDetents([.fraction(0.3), .medium, .large])
+                }
             }.padding(.bottom, 4)
                 
             ScrollView(.horizontal, showsIndicators: false){
