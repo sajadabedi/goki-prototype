@@ -10,7 +10,7 @@ import Shimmer
 
 struct ContentView: View {
     
-    let facilities = ["Wifi","Washer","TV","Bathtub","Bike", "PlayStation"]
+    
     let smartKeysArray = [["Room","bed.double.fill"],["Main door", "bed.double.fill"]]
     @State var firstOpen: Bool = false
     @State var showprofile: Bool = false
@@ -24,18 +24,17 @@ struct ContentView: View {
                     ZStack{
                         VStack(alignment: .trailing) {
                             VStack(spacing: 18){
-                                NavigationBar
-                                ReservationCard
+                                NavigationBar.padding(.horizontal, 20)
+                                ReservationCardView()
                                 Divider()
                                 SamrtKeys
                                 Divider()
-                                ConciergeList
+                                CunciergeListView()
                             }
                             Spacer()
                         }
-                        
                     }
-                    .padding()
+                    
                 }
                 FabButton().padding(.horizontal)
             }
@@ -114,51 +113,15 @@ extension ContentView {
                         .frame(width: 30, height: 30)
                         .cornerRadius(.infinity)
                 }.sheet(isPresented: $showprofile) {
-                    Text("User Profile")
+                    Text("User Profile...")
                     
                         .presentationDragIndicator(.hidden)
-                        .presentationDetents([.medium, .large, .fraction(0.75)])
+                        .presentationDetents([.large])
                 }
 
                   
                     
             }
-        }
-    }
-    
-    // MARK: Reservation Card
-    private var ReservationCard: some View{
-        VStack{
-            Image("hotelCover")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 170)
-                .SmoothCorner(radius: 8)
-                .shadow(color: .gray.opacity(0.2), radius: 5, y:5)
-                .padding(.bottom)
-            VStack (alignment: .leading, spacing: 8){
-                HStack(spacing: 8){
-                    Image(systemName: "calendar")
-                        .font(.subheadline)
-                    Text("Feb 19, 2023")
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                }
-                .foregroundColor(.secondary)
-                Text("The Student Hotel, Eindhoven.")
-                    .font(.title2)
-                    .bold()
-                    .multilineTextAlignment(.leading)
-                Text("We are more than a hotel. The Student Hotel brings together student accommodation, hotel rooms, coworking, meetings and events....")
-                    .font(.subheadline)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(facilities, id: \.self) { item in
-                            Chips(label: item)
-                        }
-                    }
-                }.padding(.vertical, 6)
-            }.frame(maxWidth: .infinity, alignment: .leading)
         }
     }
     
@@ -190,10 +153,10 @@ extension ContentView {
                 }
                 .buttonStyle(.borderless)
                 .sheet(isPresented: $showDoorCode) {
-                    Text("Door Code here")
+                    DoorCodeView()
                         .presentationDetents([.fraction(0.3), .medium, .large])
                 }
-            }.padding(.bottom, 4)
+            }.padding(.bottom, 4).padding(.horizontal, 20)
                 
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
@@ -204,66 +167,11 @@ extension ContentView {
                     SmartKeyButtonView(iconName: "door.left.hand.closed", label: "Main Entrance")
                     SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
                     SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
-                }
+                }.padding(.leading, 20)
             }.padding(.bottom, 8)
         }.frame(maxWidth: .infinity, alignment: .leading)
     }
-    
-    private var ConciergeList: some View {
-        VStack(alignment:.leading){
-            Text("Concierge")
-                .font(.title3)
-                .bold()
-                .padding(.bottom)
-            VStack(spacing: 12){
-                HStack(alignment:.top){
-                    Image(systemName: "calendar.badge.plus").frame(width: 32)
-                    VStack(alignment: .leading){
-                        Text("Extend stay")
-                            .bold()
-                        Text("Request to stay longer")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                }.frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack(alignment:.top){
-                    Image(systemName: "wifi").frame(width: 32)
-                    VStack(alignment: .leading){
-                        Text("Wi-fi")
-                            .bold()
-                        Text("Join the guest Wi-Fi")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                }.frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack(alignment:.top){
-                    Image(systemName: "person.2.fill").frame(width: 32)
-                    VStack(alignment: .leading){
-                        Text("Share access")
-                            .bold()
-                        Text("Share your keys with your family")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                }.frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack(alignment:.top){
-                    Image(systemName: "bicycle").frame(width: 32)
-                    VStack(alignment: .leading){
-                        Text("Rent a Bike")
-                            .bold()
-                        Text("Under 5min with great price")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                    }
-                }.frame(maxWidth: .infinity, alignment: .leading)
-                
-            }.frame(maxWidth: .infinity, alignment: .leading)
-               
-        }.frame(maxWidth: .infinity, alignment: .leading)
-    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

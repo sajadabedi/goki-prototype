@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		645A296E2971398900FAB64E /* DoorCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645A296D2971398900FAB64E /* DoorCodeView.swift */; };
 		647757DA296AD90A00A9CB28 /* FabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647757D9296AD90A00A9CB28 /* FabButton.swift */; };
+		64A30E7A297293CF00548F2C /* CunciergeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A30E79297293CF00548F2C /* CunciergeListView.swift */; };
+		64A30E7D2972989F00548F2C /* ReservationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A30E7C2972989F00548F2C /* ReservationCardView.swift */; };
 		64C2579529689A1C00B663B1 /* GuestsAppPrototypeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C2579429689A1C00B663B1 /* GuestsAppPrototypeApp.swift */; };
 		64C2579729689A1C00B663B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C2579629689A1C00B663B1 /* ContentView.swift */; };
 		64C2579929689A1D00B663B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64C2579829689A1D00B663B1 /* Assets.xcassets */; };
@@ -20,7 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		645A296D2971398900FAB64E /* DoorCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorCodeView.swift; sourceTree = "<group>"; };
 		647757D9296AD90A00A9CB28 /* FabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabButton.swift; sourceTree = "<group>"; };
+		64A30E79297293CF00548F2C /* CunciergeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CunciergeListView.swift; sourceTree = "<group>"; };
+		64A30E7C2972989F00548F2C /* ReservationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCardView.swift; sourceTree = "<group>"; };
 		64C2579129689A1C00B663B1 /* GuestsAppPrototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuestsAppPrototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64C2579429689A1C00B663B1 /* GuestsAppPrototypeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsAppPrototypeApp.swift; sourceTree = "<group>"; };
 		64C2579629689A1C00B663B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +50,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		645A296C2971396F00FAB64E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				645A296D2971398900FAB64E /* DoorCodeView.swift */,
+				64A30E79297293CF00548F2C /* CunciergeListView.swift */,
+				64A30E7C2972989F00548F2C /* ReservationCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		64C2578829689A1C00B663B1 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +83,7 @@
 				64C257AE2969AFA000B663B1 /* Extensions */,
 				64C257A22969607200B663B1 /* Components */,
 				64C2579629689A1C00B663B1 /* ContentView.swift */,
+				645A296C2971396F00FAB64E /* Views */,
 				64C2579829689A1D00B663B1 /* Assets.xcassets */,
 				64C2579A29689A1D00B663B1 /* Preview Content */,
 				64C257AC29697C7F00B663B1 /* ParticlesEmitter.swift */,
@@ -181,8 +198,11 @@
 				647757DA296AD90A00A9CB28 /* FabButton.swift in Sources */,
 				64C257B02969AFD800B663B1 /* CornerRadiusExtensions.swift in Sources */,
 				64C257AD29697C7F00B663B1 /* ParticlesEmitter.swift in Sources */,
+				64A30E7D2972989F00548F2C /* ReservationCardView.swift in Sources */,
+				64A30E7A297293CF00548F2C /* CunciergeListView.swift in Sources */,
 				64C257A42969608400B663B1 /* Chips.swift in Sources */,
 				64C2579529689A1C00B663B1 /* GuestsAppPrototypeApp.swift in Sources */,
+				645A296E2971398900FAB64E /* DoorCodeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
