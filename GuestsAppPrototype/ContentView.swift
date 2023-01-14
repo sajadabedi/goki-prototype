@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
-import Shimmer
+
 
 struct ContentView: View {
     
     
-    let smartKeysArray = [["Room","bed.double.fill"],["Main door", "bed.double.fill"]]
+    
     @State var firstOpen: Bool = false
     @State var showprofile: Bool = false
-    @State var showDoorCode: Bool = false
+    
     @State var showBooking: Bool = false
     
     var body: some View {
@@ -27,7 +27,7 @@ struct ContentView: View {
                                 NavigationBar.padding(.horizontal, 20)
                                 ReservationCardView()
                                 Divider()
-                                SamrtKeys
+                                SmartKeysView()
                                 Divider()
                                 CunciergeListView()
                             }
@@ -123,53 +123,6 @@ extension ContentView {
                     
             }
         }
-    }
-    
-    // MARK: Smart Keys
-    private var SamrtKeys: some View {
-        VStack(alignment:.leading){
-            HStack{
-                VStack(alignment:.leading){
-                    Text("Open door")
-                        .font(.title3)
-                        .bold()
-                        .shimmering(active: firstOpen ? false : true,duration: 2.5)
-                        
-                    Text("Tap and hold to open")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                }
-                
-                Spacer()
-                Button {
-                    showDoorCode.toggle()
-                } label: {
-                    HStack{
-                        Image(systemName: "entry.lever.keypad")
-                        Text("Door code")
-                            .font(.subheadline)
-                            .bold()
-                    }
-                }
-                .buttonStyle(.borderless)
-                .sheet(isPresented: $showDoorCode) {
-                    DoorCodeView()
-                        .presentationDetents([.fraction(0.3), .medium, .large])
-                }
-            }.padding(.bottom, 4).padding(.horizontal, 20)
-                
-            ScrollView(.horizontal, showsIndicators: false){
-                HStack{
-                    SmartKeyButtonView(iconName: "bed.double.fill", label: "Room 2341").onTapGesture {
-                        firstOpen = true
-                        print(firstOpen)
-                    }
-                    SmartKeyButtonView(iconName: "door.left.hand.closed", label: "Main Entrance")
-                    SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
-                    SmartKeyButtonView(iconName: "bicycle", label: "Bike Shed")
-                }.padding(.leading, 20)
-            }.padding(.bottom, 8)
-        }.frame(maxWidth: .infinity, alignment: .leading)
     }
 
 }
